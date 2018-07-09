@@ -3,3 +3,4 @@
 ## Unreleased
 
 * Initial commit.
+* Configured docker hub credentials for travis.

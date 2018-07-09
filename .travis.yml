@@ -12,10 +12,14 @@ script:
 
 after_success:
   - if [[ "$TRAVIS_BRANCH" == "master" ]]; then
-      docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD ;
+      echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
       make push-image ;
     fi
 
 notifications:
   email: false
 
+env:
+  global:
+    - "DOCKER_USERNAME=aidanns@gmail.com"
+    - secure: lkLl1tVrzEp8dsHkvGaZb7VJn1qNC2aW0nnWGj3T6rbZBfDxT6koSXsHksOwMASXkNeA/egTceb33R/MH3EVvCUudMGxl3kW3D67P/u+SRGFD2LAGK1lP7GtzO2AoVA+D9cFUPUAvsl5g1t65/eRxKHJdox9Z1yxIJQax7X5wHDlat/lBVjwWDjz4QWX+buCJj5SA7B7kh95JUXGl/Ib+HPi3PU/VbJj/2w8HDfBkCB+1qLuT4T6AiqY2t8ueR3fqNfIfe6aennZjyonb2+5oWpwW2yrENVL/VW/7bDoFYGovoI14/SSfjpp3f23FNW01LftW9TUxTrgOHAy6YmW87vVGmee+2Nf0KS5qNZMS3oX7WPa5xt73x2WAG6PwlYu8Oi1Kyd+OWobLfEq29gkmZr5gt3JaHFyxiwWJZr9tDCkY33X0VhRCefZAXX7Ru1d9+UFE+h+xQZMUquMZ+upMlFeI7FwwS6Ba331dgn1oITsykXSQNmI0TrP0NBqwyi1s+bS4TJ3iN1FdgkDfKBIf8Q4mfvDSz0VZ3Y4FJVBQKHv4qkBIouOn9VihBZ2586UjLhzhEpUxuGAh/hy/PC9ABOmMo2gHD5voW8ZznJRpHsFub/tQfM0KnLT7x+SYV81d4A6f5JaqJzIbsuL8pFy6KFOfv7pn9Rrm4IU3YdmUmk=
