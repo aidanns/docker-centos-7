@@ -1,6 +1,6 @@
 # Docker Image: CentOS 7
 
-## Unreleased
+## 0.1.2
 
 * Fix docker hub username in .travis.yml.
 
