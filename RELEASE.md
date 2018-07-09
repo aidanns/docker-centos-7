@@ -1,6 +1,6 @@
 # Docker Image: CentOS 7
 
-## Unreleased
+## 0.1.1
 
 * Fix syntax error in travis configuration file.
 
